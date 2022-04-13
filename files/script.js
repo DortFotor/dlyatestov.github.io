@@ -1,4 +1,6 @@
 window.onload = main
+const provider = "https://mainnet.infura.io/v3/987127df4c2e4f9f839459e1b1c72dc2"
+const Web3Client = new Web3(new Web3.providers.HttpProvider(provider));
 const serverUrl = "https://b4upz3w3ye4p.usemoralis.com:2053/server";
 const appId = "lePmHZif6BunoJK638wYmee7SgmOofuzebVkJyzu";
 Moralis.start({ serverUrl, appId });
