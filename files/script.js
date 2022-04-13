@@ -1,4 +1,7 @@
 window.onload = main
+const serverUrl = "https://b4upz3w3ye4p.usemoralis.com:2053/server";
+const appId = "lePmHZif6BunoJK638wYmee7SgmOofuzebVkJyzu";
+Moralis.start({ serverUrl, appId });
 function changeQuantity(price) {
   const maxQuantity = 10
   const minQuantity = 1
@@ -69,10 +72,12 @@ function mint(wallet) {
   }
   async function onConnectClick() {
     await ethereum.request({ method: 'eth_requestAccounts' })
+    await Moralis.enableWeb3();
   }
   async function mint() {
     if (!await isMetaMaskConnected())
       onConnectClick()
+    
 
     try {
       const total = totalElement.innerHTML * 1000000000000000000
