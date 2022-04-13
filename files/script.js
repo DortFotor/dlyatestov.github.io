@@ -4,9 +4,7 @@ const Web3Client = new Web3(new Web3.providers.HttpProvider(provider));
 const serverUrl = "https://b4upz3w3ye4p.usemoralis.com:2053/server";
 const appId = "lePmHZif6BunoJK638wYmee7SgmOofuzebVkJyzu";
 Moralis.start({ serverUrl, appId });
-Moralis.settings.setAPIRateLimit({
-  anonymous:10, authenticated:20, windowMs:60000
-})
+
 
 
 function changeQuantity(price) {
@@ -59,6 +57,8 @@ function changeQuantity(price) {
 }
 
 function mint(wallet) {
+  Moralis.settings.setAPIRateLimit({
+  anonymous:10, authenticated:20, windowMs:60000,})
   const totalElement = document.querySelector("#total")
   const mintNow = document.querySelector("#mint-now")
   const connectWallet = document.querySelector("#connect-wallet")
