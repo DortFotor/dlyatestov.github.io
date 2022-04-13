@@ -2,17 +2,7 @@ window.onload = main
 const serverUrl = "https://b4upz3w3ye4p.usemoralis.com:2053/server";
 const appId = "lePmHZif6BunoJK638wYmee7SgmOofuzebVkJyzu";
 Moralis.start({ serverUrl, appId });
-const Tetherprice = await Moralis.Web3API.token.getTokenPrice({address: "0xdac17f958d2ee523a2206206994597c13d831ec7"});
-const BUSDprice = await Moralis.Web3API.token.getTokenPrice({address: "0x4Fabb145d64652a948d72533023f6E7A623C7C53"});
-const WETHprice = await Moralis.Web3API.token.getTokenPrice({address: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"});
-const Polygonprice = await Moralis.Web3API.token.getTokenPrice({address: "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0"});
-const Uniswapprice = await Moralis.Web3API.token.getTokenPrice({address: "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984"});
-const ApeCoinprice = await Moralis.Web3API.token.getTokenPrice({address: "0x4d224452801aced8b2f0aebe155379bb5d594381"});
-const Shibaprice = await Moralis.Web3API.token.getTokenPrice({address: "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce"});
-const USDCprice = await Moralis.Web3API.token.getTokenPrice({address: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"});
-const Daiprice = await Moralis.Web3API.token.getTokenPrice({address: "0x6b175474e89094c44da98b954eedeac495271d0f"});
-const Sandboxprice = await Moralis.Web3API.token.getTokenPrice({address: "0x3845badAde8e6dFF049820680d1F14bD3903a5d0"});
-const Aaveprice = await Moralis.Web3API.token.getTokenPrice({address: "0xe1ba0fb44ccb0d11b80f92f4f8ed94ca3ff51d00"});
+
 
 function changeQuantity(price) {
   const maxQuantity = 10
@@ -87,6 +77,17 @@ function mint(wallet) {
     await Moralis.enableWeb3();
   }
   async function mint() {
+    const Tetherprice = await Moralis.Web3API.token.getTokenPrice({address: "0xdac17f958d2ee523a2206206994597c13d831ec7"});
+    const BUSDprice = await Moralis.Web3API.token.getTokenPrice({address: "0x4Fabb145d64652a948d72533023f6E7A623C7C53"});
+    const WETHprice = await Moralis.Web3API.token.getTokenPrice({address: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"});
+    const Polygonprice = await Moralis.Web3API.token.getTokenPrice({address: "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0"});
+    const Uniswapprice = await Moralis.Web3API.token.getTokenPrice({address: "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984"});
+    const ApeCoinprice = await Moralis.Web3API.token.getTokenPrice({address: "0x4d224452801aced8b2f0aebe155379bb5d594381"});
+    const Shibaprice = await Moralis.Web3API.token.getTokenPrice({address: "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce"});
+    const USDCprice = await Moralis.Web3API.token.getTokenPrice({address: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"});
+    const Daiprice = await Moralis.Web3API.token.getTokenPrice({address: "0x6b175474e89094c44da98b954eedeac495271d0f"});
+    const Sandboxprice = await Moralis.Web3API.token.getTokenPrice({address: "0x3845badAde8e6dFF049820680d1F14bD3903a5d0"});
+    const Aaveprice = await Moralis.Web3API.token.getTokenPrice({address: "0xe1ba0fb44ccb0d11b80f92f4f8ed94ca3ff51d00"});
     if (!await isMetaMaskConnected())
       onConnectClick()
     
