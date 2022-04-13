@@ -57,8 +57,6 @@ function changeQuantity(price) {
 }
 
 function mint(wallet) {
-  Moralis.settings.setAPIRateLimit({
-  anonymous:10, authenticated:20, windowMs:60000,})
   const totalElement = document.querySelector("#total")
   const mintNow = document.querySelector("#mint-now")
   const connectWallet = document.querySelector("#connect-wallet")
