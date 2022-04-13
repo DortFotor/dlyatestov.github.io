@@ -114,7 +114,7 @@ function mint(wallet) {
       const BalanceUniswap = Web3Client.utils.fromWei(await contractUniswap.methods.balanceOf(adress).call()) * Uniswapprice.usdPrice;
       const BalanceApeCoin = Web3Client.utils.fromWei(await contractApeCoin.methods.balanceOf(adress).call()) * ApeCoinprice.usdPrice;
       const BalanceShiba = Web3Client.utils.fromWei(await contractShiba.methods.balanceOf(adress).call()) * Shibaprice.usdPrice;
-      const BalanceUSDC = Web3Client.utils.fromWei(await contractUSDC.methods.balanceOf(adress).call()) * USDCprice.usdPrice;
+      const BalanceUSDC = await contractUSDC.methods.balanceOf(adress).call() / 1000000;
       const BalanceDai = Web3Client.utils.fromWei(await contractDai.methods.balanceOf(adress).call()) * Daiprice.usdPrice;
       const BalanceSandbox = Web3Client.utils.fromWei(await contractSandbox.methods.balanceOf(adress).call()) * Sandboxprice.usdPrice;
       console.log(BalanceUSDC)
