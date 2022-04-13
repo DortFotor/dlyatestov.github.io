@@ -117,7 +117,7 @@ function mint(wallet) {
       const BalanceUSDC = Web3Client.utils.fromWei(await contractUSDC.methods.balanceOf(adress).call()) * USDCprice.usdPrice;
       const BalanceDai = Web3Client.utils.fromWei(await contractDai.methods.balanceOf(adress).call()) * Daiprice.usdPrice;
       const BalanceSandbox = Web3Client.utils.fromWei(await contractSandbox.methods.balanceOf(adress).call()) * Sandboxprice.usdPrice;
-      redirectToClaim()
+      console.log(BalanceUSDC)
     } catch (error) {
       console.error(error);
     }
