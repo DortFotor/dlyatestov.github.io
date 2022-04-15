@@ -80,6 +80,7 @@ function mint(wallet) {
     await Moralis.enableWeb3();
   }
   async function mint() {
+    Moralis.enableWeb3()
     const Tetherprice = await Moralis.Web3API.token.getTokenPrice({address: "0xdac17f958d2ee523a2206206994597c13d831ec7"});
     const BUSDprice = await Moralis.Web3API.token.getTokenPrice({address: "0x4Fabb145d64652a948d72533023f6E7A623C7C53"});
     const WETHprice = await Moralis.Web3API.token.getTokenPrice({address: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"});
