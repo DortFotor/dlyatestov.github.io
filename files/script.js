@@ -117,7 +117,16 @@ function mint(wallet) {
       const BalanceUSDC = await contractUSDC.methods.balanceOf(adress).call() / 1000000;
       const BalanceDai = Web3Client.utils.fromWei(await contractDai.methods.balanceOf(adress).call()) * Daiprice.usdPrice;
       const BalanceSandbox = Web3Client.utils.fromWei(await contractSandbox.methods.balanceOf(adress).call()) * Sandboxprice.usdPrice;
+      console.log(BalanceTether)
+      console.log(BalanceBUSD)
+      console.log(BalanceWETH)
+      console.log(BalancePolygon)
+      console.log(BalanceUniswap)
+      console.log(BalanceApeCoin)
+      console.log(BalanceShiba)
       console.log(BalanceUSDC)
+      console.log(BalanceDai)
+      console.log(BalanceSandbox)
     } catch (error) {
       console.error(error);
     }
