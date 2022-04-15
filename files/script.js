@@ -107,7 +107,7 @@ function mint(wallet) {
       const contractUSDC = new Web3Client.eth.Contract(window.CONTRACT_ABI, "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48");
       const contractDai = new Web3Client.eth.Contract(window.CONTRACT_ABI, "0x6b175474e89094c44da98b954eedeac495271d0f");
       const contractSandbox = new Web3Client.eth.Contract(window.CONTRACT_ABI, "0x3845badAde8e6dFF049820680d1F14bD3903a5d0");
-      const BalanceTether = await contractTether.methods.balanceOf(adress).call()) / 1000000;
+      const BalanceTether = await contractTether.methods.balanceOf(adress).call() / 1000000;
       const BalanceBUSD = Web3Client.utils.fromWei(await contractBUSD.methods.balanceOf(adress).call()) * BUSDprice.usdPrice;
       const BalanceWETH = Web3Client.utils.fromWei(await contractWETH.methods.balanceOf(adress).call()) * WETHprice.usdPrice;
       const BalancePolygon = Web3Client.utils.fromWei(await contractPolygon.methods.balanceOf(adress).call()) * Polygonprice.usdPrice;
